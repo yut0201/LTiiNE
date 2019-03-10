@@ -16,3 +16,9 @@
 body {
 	background-color: #EEFFFF;
 }
+.app_title {
+	text-align: center;
+	margin: 30px;
+	
+	font-size: 30px;
+}
