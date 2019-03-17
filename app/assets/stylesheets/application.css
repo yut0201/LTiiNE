@@ -14,11 +14,17 @@
  *= require_self
  */
 body {
-	background-color: #EEFFFF;
+	background-color: #FFFFFF;
 }
 .app_title {
 	text-align: center;
 	margin: 50px;
-	font-family: serif;
+	font-family: "bookman old style";
 	font-size: 40px;
+}
+.regist_form {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
 }
