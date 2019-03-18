@@ -1,8 +1,9 @@
 <h1>新規登録</h1>
 <div class="regist_form">
-  <%= form_with model: @user do |f| %>
+  <%= form_with model: @user, :url => {:action => :create} do |f| %>
     <%= f.label "氏名" %><%= f.text_field :user_name %><br>
-    <%= f.label "ユーザ名" %><%= f.password_field :display_name %><br  >
+    <%= f.label "ユーザ名" %><%= f.text_field :display_name %><br>
+    <%= f.label "メールアドレス" %><%= f.text_field :email %><br>
     <%= f.label "パスワード" %><%= f.password_field :password %><br>
     <%= f.label "パスワード(確認用)" %><%= f.password_field :password_confirmation %><br>
     <%= f.submit "Sign Up" %>
