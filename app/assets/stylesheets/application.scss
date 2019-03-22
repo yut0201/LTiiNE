@@ -10,9 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+@import "bootstrap";
 body {
 	background-color: #FFFFFF;
 }
@@ -22,9 +21,43 @@ body {
 	font-family: "bookman old style";
 	font-size: 40px;
 }
+.content-body {
+	border: 1px solid #AAA;
+	width: 70%;
+	/*text-align: center;*/
+	margin: auto;
+	padding: 15px;
+}
 .regist_form {
 	-webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 
+}
+.form-text {
+	text-align: right;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
 }
