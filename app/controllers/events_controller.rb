@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   def index
+    @events = Event.all
   end
 
   def show
@@ -24,5 +25,7 @@ class EventsController < ApplicationController
   def delete
   end
 
-  
+  def user_params
+    params.require(:event).permit(:event_name, :event_date)
+  end
 end
