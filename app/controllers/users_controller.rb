@@ -24,12 +24,18 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.find_by(display_name: params[:display_name], password: params[:password])
+    @user = User.find_by(email: params[:email], password: params[:password])
     if @user
+      session[:user_name] = @user.user_name
+
       flash[:notice] = "ログインしました"
       redirect_to action: :show
     else
-      render '/login'
+      @error_message = "メールアドレスまたはパスワードが間違っています"
+      @email = params[:email]
+      @password = params[:password]
+
+      render '/bef_login'
     end
   end
 

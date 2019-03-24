@@ -13,7 +13,13 @@ Rails.application.routes.draw do
   get  'users/show'
   get  '/sign_up'    => 'users#new'
   post '/sign_up'    => 'users#create'
+  # get  '/login'      => 'users#bef_login'
+  # post '/login'      => 'users#login'
   get  'users/edit'
   get  'users/delete'
+
+  get  '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
 
 end
