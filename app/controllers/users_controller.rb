@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     @users = User.all
   end
@@ -16,6 +17,19 @@ class UsersController < ApplicationController
       redirect_to action: :index
     else
       render 'new'
+    end
+  end
+
+  def bef_login
+  end
+
+  def login
+    @user = User.find_by(display_name: params[:display_name], password: params[:password])
+    if @user
+      flash[:notice] = "ログインしました"
+      redirect_to action: :show
+    else
+      render '/login'
     end
   end
 
