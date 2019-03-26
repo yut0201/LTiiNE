@@ -3,14 +3,18 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email])
+    user = User.find_by(display_name: params[:session][:display_name])
   	if user && user.authenticate(params[:session][:password])
-  	  reset_session
-      session[:user_name] = user.user_name
-      redirect_to '/events'
+  	  log_in user
+  	  redirect_to '/events'
     else
-      flash.now[:danger] = 'メールアドレス または パスワード に誤りがあります。'
+      flash.now[:danger] = 'ユーザ名 または パスワード に誤りがあります。'
       render 'new'
     end
+  end
+
+  def destroy
+  	log_out
+  	redirect_to login_url
   end
 end

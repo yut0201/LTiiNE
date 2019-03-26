@@ -2,7 +2,7 @@
 
 one:
   event_name: MyString
-  event_date: 2019-03-24
+  event_datetime: 2019-03-24 18:06:04
   presentation_name1: MyString
   presentation_name2: MyString
   presentation_name3: MyString
@@ -10,7 +10,7 @@ one:
 
 two:
   event_name: MyString
-  event_date: 2019-03-24
+  event_datetime: 2019-03-24 18:06:04
   presentation_name1: MyString
   presentation_name2: MyString
   presentation_name3: MyString

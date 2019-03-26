@@ -23,13 +23,18 @@
           <%= link_to "Sign Up", "/sign_up", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Login", "/login", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
           <%= link_to "イベント一覧", "/events", class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "イベント登録", "/new_event", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログイン", "/login", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <% if logged_in? %>
+            <%= link_to "マイページ", users_show_path(display_name: session[:display_name]), class: "nav-link" %>
+          <% end %>
         </li>
       </ul>
     </nav>
@@ -37,8 +42,8 @@
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
-    <% if session[:user_name] %>
-      <p>ログイン中：<%= session[:user_name] %></p>
+    <% if session[:display_name] %>
+      <p>ログイン中：<%= session[:display_name] %></p>
     <% end %>
     <div class="container">
       <%= yield %>

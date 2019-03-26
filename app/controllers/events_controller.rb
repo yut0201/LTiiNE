@@ -20,12 +20,15 @@ class EventsController < ApplicationController
   end
 
   def edit
+    
   end
 
   def delete
   end
 
-  def user_params
-    params.require(:event).permit(:event_name, :event_date)
+  def event_params
+    params
+      .require(:event)
+      .permit(:event_name, :event_datetime)
   end
 end

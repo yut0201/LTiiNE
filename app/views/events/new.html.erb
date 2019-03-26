@@ -6,7 +6,7 @@
     	<%= f.label "イベント名" %><%= f.text_field :event_name, class: "form-text" %>
     </div>
     <div class="form-group">
-    <!--<%= f.label "日時" %><%= f.text_field :display_name, class: "form-text" %>-->
+    	<%= f.label "開催日時" %><%= f.datetime_select :event_datetime, class: "form_control" %>
     </div>
     <%= f.submit "Create", class: "btn btn-primary" %>
   <% end %>

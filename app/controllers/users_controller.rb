@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :delete]
 
   def index
     @users = User.all
@@ -23,29 +24,19 @@ class UsersController < ApplicationController
   def bef_login
   end
 
-  def login
-    @user = User.find_by(email: params[:email], password: params[:password])
-    if @user
-      session[:user_name] = @user.user_name
-
-      flash[:notice] = "ログインしました"
-      redirect_to action: :show
-    else
-      @error_message = "メールアドレスまたはパスワードが間違っています"
-      @email = params[:email]
-      @password = params[:password]
-
-      render '/bef_login'
-    end
-  end
-
   def edit
   end
 
   def delete
   end
 
-  def user_params
-    params.require(:user).permit(:user_name, :display_name, :email, :password, :password_confirmation)
-  end
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_user
+      @user = User.find_by(display_name: params[:display_name])
+    end
+
+    def user_params
+      params.require(:user).permit(:user_name, :display_name, :email, :password, :password_confirmation)
+    end
 end
