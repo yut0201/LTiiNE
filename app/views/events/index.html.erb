@@ -5,7 +5,7 @@
       <th>イベント名</th>
       <th>開催日時</th>
       <th>ステータス</th>
-      <!--th colspan="3"></th-->
+      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -13,7 +13,9 @@
   <tr>
     <td><%= e.event_name %></td>
     <td><%= e.event_datetime %></td>
-    <td></td>
+    <td><%= link_to "プレゼン登録", presentations_new_path(event_name: e.event_name) %></td>
+    <td><%= link_to "削除", delete_event_path(event_name: e.event_name) %></td>
+    <td><%= link_to "編集", edit_event_path(event_name: e.event_name) %></td>
   </tr>
 <% end %>
 </table>
