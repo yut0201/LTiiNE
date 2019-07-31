@@ -1,0 +1,13 @@
+<h1>ログイン</h1>
+<div class="login_form">
+  <%= form_for(:session, url: sessions_path) do |f| %>
+    <div class="form-group">
+    <%= f.label "ユーザ名" %><%= f.text_field :display_name, class: "form-text" %>
+    </div>
+    <div class="form-group">
+    <%= f.label "パスワード" %><%= f.password_field :password, class: "form-text" %>
+	  </div>
+	<%= f.submit "Log in", class: "btn btn-info" %>
+  <% end %>
+  <p>アカウント登録は <%= link_to "こちら", sessions_path %></p>
+</div>

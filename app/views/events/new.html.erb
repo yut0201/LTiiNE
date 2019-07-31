@@ -1,0 +1,13 @@
+<h1>イベント登録</h1>
+<p>イベント情報を入力してください。</p>
+<div class="regist_form">
+  <%= form_with model: @event, :url => {:action => :create} do |f| %>
+    <div class="form-group">
+    	<%= f.label "イベント名" %><%= f.text_field :event_name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+    	<%= f.label "開催日時" %><%= f.datetime_select :event_datetime, class: "form_control" %>
+    </div>
+    <%= f.submit "Create", class: "btn btn-primary" %>
+  <% end %>
+</div>
