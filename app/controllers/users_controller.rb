@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    # before_action :set_user でユーザ情報取得
   end
 
   def new
@@ -25,15 +26,31 @@ class UsersController < ApplicationController
   end
 
   def edit
+    # before_action :set_user でユーザ情報取得
+  end
+
+  def update
+    @user = User.find_by(id: params[:id])
+
+    if current_user = @user
+      if @user.update_attributes(user_params)
+        flash[:success] = 'successfully update user information.'
+        redirect_to user_path(id: @user[:id])
+      else
+        flash.now[:danger] = 'FAILED! Please check parameters.'
+        render 'edit'
+      end
+    else
+      redirect_to home_path
+    end
   end
 
   def delete
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find_by(display_name: params[:display_name])
+      @user = User.find_by(id: params[:id])
     end
 
     def user_params
