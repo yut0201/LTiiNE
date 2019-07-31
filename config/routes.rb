@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :events, param: :event_name
 
-  resource :users
+  resources :users
 
   resources :sessions
 
