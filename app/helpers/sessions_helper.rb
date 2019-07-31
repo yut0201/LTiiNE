@@ -1,14 +1,16 @@
 module SessionsHelper
   def current_user
-    @current_user ||= User.find_by(display_name: session[:display_name])
+    # current_userが未定義の場合、find_byで検索
+    @current_user ||= User.find_by(id: session[:id])
   end
 
   def logged_in?
+    # 値は格納されているか？
     current_user.present?
   end
 
   def log_in(user)
-    session[:display_name] = user.display_name
+    session[:id] = user.id
   end
 
   def log_out
