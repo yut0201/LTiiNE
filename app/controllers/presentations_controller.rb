@@ -14,19 +14,17 @@ class PresentationsController < ApplicationController
   end
 
   def show
-    @presentation = Presentation.find_by()
   end
 
   def index
-    @presentations = Presentation.all
   end
 
   def delete
-    @presentation_name = params[:presentation_name]
+    @event_name = params[:event_name]
   end
 
   def edit
-    @presentation_name = params[:presentation_name]
+    @event_name = params[:event_name]
   end
 
   private
