@@ -1,2 +1,14 @@
-<h1>Events#edit</h1>
-<p>Find me in app/views/events/edit.html.erb</p>
+<h1>イベント編集</h1>
+<div class="regist_form">
+<%= form_with model: @event, local: true, :url => {:action => :update} do |f| %>
+  <div class="form-group">
+  	<%= f.label "イベント名" %>
+  	<%= f.text_field :event_name %>
+  </div>
+  <div class="form-group">
+  	<%= f.label "イベント日時" %>
+  	<%= f.datetime_select :event_datetime, class: "form_control" %>
+  </div>
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+<% end %>
+</div>
