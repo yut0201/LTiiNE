@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_name: MyString
+  event_datetime: 2019-03-24 18:06:04
+  presentation_name1: MyString
+  presentation_name2: MyString
+  presentation_name3: MyString
+  presentation_name4: MyString
+
+two:
+  event_name: MyString
+  event_datetime: 2019-03-24 18:06:04
+  presentation_name1: MyString
+  presentation_name2: MyString
+  presentation_name3: MyString
+  presentation_name4: MyString

@@ -17,5 +17,4 @@ class SessionsController < ApplicationController
   	log_out
   	redirect_to home_path
   end
-
 end

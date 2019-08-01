@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :delete]
+
   def index
     @users = User.all
   end
@@ -20,6 +22,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def bef_login
+  end
+
   def edit
     # before_action :set_user でユーザ情報取得
   end
@@ -30,8 +35,7 @@ class UsersController < ApplicationController
     if current_user = @user
       if @user.update_attributes(user_params)
         flash[:success] = 'successfully update user information.'
-        # params[:session][:display_name] = @user[:display_name]
-        redirect_to users_show_path(id: @user[:id])
+        redirect_to user_path(id: @user[:id])
       else
         flash.now[:danger] = 'FAILED! Please check parameters.'
         render 'edit'
