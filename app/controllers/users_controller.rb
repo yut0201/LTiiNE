@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      redirect_to action: :index
+      redirect_to events_path
     else
       render 'new'
     end
