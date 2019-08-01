@@ -22,9 +22,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def bef_login
-  end
-
   def edit
     # before_action :set_user でユーザ情報取得
   end
