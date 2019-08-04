@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   end
 
   def new
+    # session[:id] がNULLでない場合（既存ユーザでログイン中の場合）、
+    # 既存ユーザのログアウトを促したい
     @user = User.new
   end
 

@@ -1,4 +1,12 @@
 class PresentationsController < ApplicationController
+  def index
+    @presentations = Presentation.all
+  end
+
+  def show
+    @presentation = Presentation.find_by()
+  end
+
   def new
     @presentation = Presentation.new
     @event_name = params[:event_name]
@@ -13,19 +21,11 @@ class PresentationsController < ApplicationController
     end
   end
 
-  def show
-    @presentation = Presentation.find_by()
-  end
-
-  def index
-    @presentations = Presentation.all
-  end
-
-  def delete
+  def edit
     @presentation_name = params[:presentation_name]
   end
 
-  def edit
+  def delete
     @presentation_name = params[:presentation_name]
   end
 
