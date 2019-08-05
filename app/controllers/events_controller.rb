@@ -7,9 +7,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(event_name: params[:event_name])
-    # class DerivePresentations < PresentationsController
-    # WIP : presentations コントローラの action 呼び出し
-    # @presentations = Presentation.find_by(Event_id: @event.id)
+    @presentations = Presentation.where(Event_id: @event.id)
   end
 
   def new

@@ -12,13 +12,15 @@
     </tr>
   </thead>
 
-<--% @presentations.each do |p| %-->
+<% @presentations.each do |p| %>
   <tr>	
-    <td><--%= p.presentation_name %--></td>
-    <td><--%= p.description %--></td>
-    <td><--%= p.display_name %--></td>
-    <td><--%= p.likes %--></td>
+    <td><%= p.presentation_name %></td>
+    <td><%= p.description %></td>
+    <td><%= p.display_name %></td>
+    <td><%= p.likes %></td>
   </tr>
-<--% end %-->
+<% end %>
 </table>
+<p>プレゼンテーションの登録はこちら</p>
+<%= link_to "プレゼン登録", new_presentation_path, class: "btn btn-info" %>
 
