@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: [:show, :edit, :update, :delete]
+
   def index
     @events = Event.all
   end
@@ -24,19 +26,19 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find_by(event_name: params[:event_name])
-    if @event.update_attributes(event_params)
-        flash[:success] = 'successfully update Event information.'
-        # params[:session][:display_name] = @user[:display_name]
-        redirect_to event_path(event_name: @event[:event_name])
-      else
-        flash.now[:danger] = 'FAILED! Please check parameters.'
-        render 'edit'
-      end
+    
   end
 
   def update
-
+    @event = Event.find_by(event_name: params[:event_name])
+    if @event.update_attributes(event_params)
+      flash[:success] = 'successfully update Event information.'
+      # params[:session][:display_name] = @user[:display_name]
+      redirect_to event_path(event_name: @event[:event_name])
+    else
+      flash.now[:danger] = 'FAILED! Please check parameters.'
+      render 'edit'
+    end
   end
 
   def delete
@@ -49,7 +51,7 @@ class EventsController < ApplicationController
 
   private
     def set_event
-      @event = Event.find_by(id: params[:id])
+      @event = Event.find_by(event_name: params[:event_name])
     end
 
     def event_params
