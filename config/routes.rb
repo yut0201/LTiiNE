@@ -8,11 +8,6 @@ Rails.application.routes.draw do
 
   resources :sessions
 
-  get    'presentations/new'
-  post   'presentations/new', to: 'presentations#create'
-  get    'presentations/show'
-  get    'presentations/index'
-  delete 'presentations/delete', to: 'presentations#delete'
-  get    'presentations/edit', to: 'presentations#edit'
+  resources :presentations
 
 end
