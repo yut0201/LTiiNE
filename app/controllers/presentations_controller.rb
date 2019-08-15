@@ -18,9 +18,13 @@ class PresentationsController < ApplicationController
     @presentation.description = params[:presentation][:description]
     @event = Event.find_by(event_name: params[:event_event_name])
     @presentation.Event_id = @event[:id]
+    p '+++++++++++++++++++++++++'
+    p @presentation
+    p params[:event_event_name]
+    p '+++++++++++++++++++++++++'
     # WIP
     if @presentation.save
-      render event_path(params[:event_event_name])
+      redirect_to event_path(event_name: params[:event_event_name])
       # render events_path
     else
       render 'new'
