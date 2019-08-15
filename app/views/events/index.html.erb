@@ -13,7 +13,7 @@
   <tr>
     <td><%= link_to e.event_name, event_path(e.event_name) %></td>
     <td><%= e.event_datetime %></td>
-    <td><%= link_to "プレゼン登録", presentations_new_path(event_name: e.event_name) %></td>
+    <td><%= link_to "プレゼン登録", new_event_presentation_path(e.event_name) %></td>
     <td><%= link_to "削除", event_path(e.event_name), method: :delete, data: { confirm: 'Delete OK?' } %></td>
     <td><%= link_to "編集", edit_event_path(e.event_name) %></td>
   </tr>

@@ -1,5 +1,5 @@
 <h1>Event詳細</h1>
-<h2>イベント名：<%= @event.event_name %></h2>
+<h2>イベント名：<%= params[:event_name] %></h2>
 <p>登録済みのプレゼンテーション一覧です。</p>
 <table class="table table-hover">
   <thead class="thead-light">
@@ -8,7 +8,7 @@
       <th>説明</th>
       <th>ユーザ名</th>
       <th>いいね！数</th>
-      <th colspan="4"></th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
@@ -18,9 +18,10 @@
     <td><%= p.description %></td>
     <td><%= p.display_name %></td>
     <td><%= p.likes %></td>
+    <td><%= link_to '削除', presentation_path(p.id), method: :delete, data: { confirm: 'Delete OK?' } %></td>
   </tr>
 <% end %>
 </table>
 <p>プレゼンテーションの登録はこちら</p>
-<%= link_to "プレゼン登録", new_presentation_path, class: "btn btn-info" %>
+<%= link_to "プレゼン登録", new_event_presentation_path(@event.event_name), class: "btn btn-info" %>
 
