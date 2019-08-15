@@ -8,14 +8,20 @@ class PresentationsController < ApplicationController
   end
 
   def new
+    @event_name = params[:event_event_name]
     @presentation = Presentation.new
-    @event_name = params[:event_name]
   end
 
   def create
-    @presentation = Presentation.create(presentation_params)
+    @presentation = Presentation.new
+    @presentation.presentation_name = params[:presentation][:presentation_name]
+    @presentation.description = params[:presentation][:description]
+    @event = Event.find_by(event_name: params[:event_event_name])
+    @presentation.Event_id = @event[:id]
+    # WIP
     if @presentation.save
-      redirect_to action: :index
+      render event_path(params[:event_event_name])
+      # render events_path
     else
       render 'new'
     end
@@ -26,12 +32,17 @@ class PresentationsController < ApplicationController
   end
 
   def delete
-    @presentation_name = params[:presentation_name]
+  end
+
+  def destroy
+    @presentation = Presentation.find(params[:id])
+    @presentation.destroy
   end
 
   private
 
     def presentation_params
-      params.require(:presentation).permit(:presentation_name, :description, :display_name)
+      params.require(:presentation)
+        .permit(:presentation_name, :description)
     end
 end
