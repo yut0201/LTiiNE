@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LTiiNE</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navigation-top">
+      <ul class="navigation-item">
+        <li class="nav-item active">
+          <%= link_to "LTiiNE", home_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "LTiiNEについて", about_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "SignUp", new_user_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Events", events_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "SignIn", new_session_path, class: "nav-link" %>
+        </li>
+        <% if logged_in? %>
+          <li class="nav-item">
+            <%= link_to "Mypage", user_path(id: session[:id]), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'SignOut', session_path(id: session[:id]), method: :delete, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+    <% if session[:id] %>
+      <input type="hidden"><%= session[:id] %></p>
+    <% end %>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+    <div class="container">
+      <%= yield %>
+    </div>
+
+  </body>
+</html>
