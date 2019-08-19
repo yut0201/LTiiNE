@@ -11,12 +11,12 @@
 
   <body>
     <nav class="navigation-top">
-      <ul class="navigation-itam">
+      <ul class="navigation-item">
         <li class="nav-item active">
           <%= link_to "LTiiNE", home_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "LTiiNEについて", about_path, class: "nav-link" %>
+          <%= link_to "About", about_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "SignUp", new_user_path, class: "nav-link" %>
@@ -34,13 +34,15 @@
           <li class="nav-item">
             <%= link_to 'SignOut', session_path(id: session[:id]), method: :delete, class: "nav-link" %>
           </li>
+        <% end %>
+        <% if session[:id] %>
+          <li class="nav-item">
+            <p class="nav-link">ログイン中：<%= session[:id] %></p>
+          </li>
         <% end %>  
       </ul>
     </nav>
     <br>
-    <% if session[:id] %>
-      ログイン中：<%= session[:id] %>
-    <% end %>
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
