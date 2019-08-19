@@ -18,6 +18,8 @@ class PresentationsController < ApplicationController
     @presentation.description = params[:presentation][:description]
     @event = Event.find_by(event_name: params[:event_event_name])
     @presentation.Event_id = @event[:id]
+    user = User.find_by(id: session[:id])
+    @presentation.display_name = user.display_name
     # WIP
     if @presentation.save
       redirect_to event_path(event_name: params[:event_event_name])
