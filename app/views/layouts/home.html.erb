@@ -9,15 +9,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <nav class="navigation-top">
-      <ul class="navigation-item">
+  <body class="home-body">
+    <nav class="nav-top">
+      <ul class="nav-item">
         <li class="nav-item active">
-          <%= link_to "LTiiNE", home_path, class: "nav-link" %>
+          <%= link_to "LTiiNE ▼", home_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "LTiiNEについて", about_path, class: "nav-link" %>
-        </li>
+        <!-- <li class="nav-item">
+          <%= link_to "About", about_path, class: "nav-link" %>
+        </li> -->
         <li class="nav-item">
           <%= link_to "SignUp", new_user_path, class: "nav-link" %>
         </li>
@@ -38,7 +38,7 @@
       </ul>
     </nav>
     <% if session[:id] %>
-      <input type="hidden"><%= session[:id] %></p>
+      <input type="hidden" value="<%= session[:id] %>">
     <% end %>
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>

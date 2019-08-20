@@ -14,16 +14,14 @@
 html,body {
 	height: 100%;
 }
-body .navigation-top{
+body .nav-top{
     display: table;
-    margin: 0 auto;
-    padding: 0;
-    width: 80%;
+    width: 100%;
     text-align: center;
 }
-.navigation-item .nav-item{
+.nav-item .nav-item{
     display: table-cell;
-    min-width: 120px;
+    min-width: 100px;
 }
 ul li .nav-link{
     display: block;
@@ -33,6 +31,7 @@ ul li .nav-link{
     text-decoration: none;
     color: #555;
     font-weight: bold;
+    letter-spacing: .1em;
 }
 ul li.current{
     background-color: #DEEBF7;
@@ -48,14 +47,14 @@ ul li:hover{
 	/*margin: 50px;*/
 	font-family: "bookman old style";
 	font-size: 100px;
-	color: #eeeeee;
+	color: #ffffff;
 }
 .app_overview {
 	text-align: center;
 	/*margin: 50px;*/
 	font-family: "bookman old style";
 	font-size: 30px;
-	color: #555555;	
+	color: #222222;	
 }
 .content-body {
 	border: 1px solid #AAA;
@@ -76,7 +75,11 @@ ul li:hover{
 .container {
 	height: 100%;
 }
-.home-container {
+.middle-layer {
+	height: 100%;
+	/*background-color: rgba(255,255,255,0.5);*/
+}
+.home-body {
 	width: 100%;
     max-width: 100%;
     height: 100%;
@@ -91,5 +94,6 @@ ul li:hover{
 
     /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
     background-attachment: scroll;
+    opacity: 0.6;
 }
 

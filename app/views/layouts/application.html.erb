@@ -10,14 +10,14 @@
   </head>
 
   <body>
-    <nav class="navigation-top">
-      <ul class="navigation-item">
+    <nav class="nav-top">
+      <ul class="nav-item">
         <li class="nav-item active">
           <%= link_to "LTiiNE", home_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <%= link_to "About", about_path, class: "nav-link" %>
-        </li>
+        </li> -->
         <li class="nav-item">
           <%= link_to "SignUp", new_user_path, class: "nav-link" %>
         </li>
@@ -36,13 +36,10 @@
           </li>
         <% end %>
         <% if session[:id] %>
-          <li class="nav-item">
-            <p class="nav-link">ログイン中：<%= session[:id] %></p>
-          </li>
+          <input type="hidden" value="<%= session[:id] %>">
         <% end %>  
       </ul>
     </nav>
-    <br>
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
