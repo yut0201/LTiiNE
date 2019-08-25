@@ -4,7 +4,7 @@ class PresentationsController < ApplicationController
   end
 
   def show
-    @presentation = Presentation.find_by()
+    @presentation = Presentation.find(params[:id])
   end
 
   def new
@@ -37,8 +37,15 @@ class PresentationsController < ApplicationController
   end
 
   def destroy
+    p '==================='
+    p params
+    p '==================='
     @presentation = Presentation.find(params[:id])
-    @presentation.destroy
+    if @presentation.destroy
+      redirect_to event_path(event_name: params[:event_event_name])
+    else
+      render 'edit'
+    end
   end
 
   private
