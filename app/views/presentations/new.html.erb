@@ -8,8 +8,12 @@
     	<%= f.text_field :presentation_name, class: "form-text" %>
     </div>
     <div class="form-group">
-    	<%= f.label "詳細" %>
+    	<%= f.label "概要(任意)" %>
     	<%= f.text_area :description, class: "form-text" %>
+    </div>
+    <div class="form-group">
+        <%= f.label "リンク" %>
+        <%= f.text_area :link_url, class: "form-text" %>
     </div>
     <%= f.submit "Create", class: "btn btn-primary" %>
   <% end %>

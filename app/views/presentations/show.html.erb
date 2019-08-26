@@ -1,2 +1,8 @@
-<h1><%= @presentation.presentation_name %></h1>
-<p>Find me in app/views/presentations/show.html.erb</p>
+<h1 class="presentation_title"><%= @presentation.presentation_name %></h1>
+<p><%= @presentation.description %></p>
+<div class="slide-content">
+	<%= @presentation.link_url.html_safe %>
+</div>
+<% if @presentation.display_name == @user_name %>
+  <%= link_to 'Edit', edit_presentation_path(@presentation.id) %>
+<% end %>
