@@ -4,6 +4,8 @@ class PresentationsController < ApplicationController
   end
 
   def show
+    user = User.find_by(id: session[:id])
+    @user_name = user.display_name
     @presentation = Presentation.find(params[:id])
   end
 
@@ -16,6 +18,7 @@ class PresentationsController < ApplicationController
     @presentation = Presentation.new
     @presentation.presentation_name = params[:presentation][:presentation_name]
     @presentation.description = params[:presentation][:description]
+    @presentation.link_url = params[:presentation][:link_url]
     @event = Event.find_by(event_name: params[:event_event_name])
     @presentation.Event_id = @event[:id]
     user = User.find_by(id: session[:id])
@@ -37,12 +40,9 @@ class PresentationsController < ApplicationController
   end
 
   def destroy
-    p '==================='
-    p params
-    p '==================='
     @presentation = Presentation.find(params[:id])
     if @presentation.destroy
-      redirect_to event_path(event_name: params[:event_event_name])
+      redirect_to event_path(params[:event_name])
     else
       render 'edit'
     end
