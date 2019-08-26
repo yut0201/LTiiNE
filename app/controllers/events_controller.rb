@@ -6,6 +6,8 @@ class EventsController < ApplicationController
   end
 
   def show
+    user = User.find_by(id: session[:id])
+    @user_name = user.display_name
     @event = Event.find_by(event_name: params[:event_name])
     @presentations = Presentation.where(Event_id: @event.id)
   end

@@ -18,7 +18,11 @@
     <td><%= p.description %></td>
     <td><%= p.display_name %></td>
     <td><%= p.likes %></td>
-    <td><%= link_to '削除', presentation_path(p.id), method: :delete, data: { confirm: 'Delete OK?' } %></td>
+    <td>
+      <% if p.display_name == @user_name %>
+        <%= link_to '削除', presentation_path(p.id), method: :delete, data: { confirm: 'Delete OK?' } %>
+      <% end %>
+    </td>
   </tr>
 <% end %>
 </table>
