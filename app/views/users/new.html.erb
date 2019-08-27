@@ -1,5 +1,5 @@
 <h1>新規登録</h1>
-<div class="regist_form">
+<div class="form-div">
   <%= form_with model: @user, :url => {:action => :create} do |f| %>
     <div class="form-group">
     	<%= f.label "氏名" %><%= f.text_field :user_name, class: "form-text" %>
