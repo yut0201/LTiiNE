@@ -1,7 +1,7 @@
 <h1>プレゼンテーション登録</h1><br>
 <br>
 <div class="form-div">
-  <%= form_with model: @presentation, :url => {:action => :create} do |f| %>
+  <%= form_with model: @presentation, :url event_presentation_path do |f| %>
   <h2>イベント名 : <%= @event_name %></h2>
     <div class="form-group">
     	<%= f.label "プレゼンテーション名" %>
@@ -15,6 +15,6 @@
         <%= f.label "リンク" %>
         <%= f.text_area :link_url, class: "form-text" %>
     </div>
-    <%= f.submit "Create", class: "btn btn-primary" %>
+    <%= f.submit "Create" %>
   <% end %>
 </div>
