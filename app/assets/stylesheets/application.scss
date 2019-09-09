@@ -12,6 +12,9 @@
  *
  *= require_tree .
  */
+
+@import "bootstrap";
+
 html .app-body {
 	height: 100%;
 	background-color: #E1F3FB;
@@ -29,7 +32,7 @@ ul li .nav-link{
     display: block;
     width: 100%;
     padding: 10px 0;
-    margin: 10px auto;
+    margin: 15px auto;
     text-decoration: none;
     color: #555;
     font-weight: bold;
@@ -46,14 +49,12 @@ ul li:hover{
 }
 .app_title {
 	text-align: center;
-	/*margin: 50px;*/
 	font-family: "bookman old style";
 	font-size: 100px;
 	color: #ffffff;
 }
 .app_overview {
 	text-align: center;
-	/*margin: 50px;*/
 	font-family: "bookman old style";
 	font-size: 30px;
 	color: #ffffff;	
@@ -61,7 +62,6 @@ ul li:hover{
 .content-body {
 	border: 1px solid #AAA;
 	width: 70%;
-	/*text-align: center;*/
 	margin: auto;
 	padding: 15px;
 }
