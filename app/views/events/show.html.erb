@@ -20,7 +20,7 @@
     <td><%= p.likes %></td>
     <td>
       <% if p.display_name == @user_name %>
-        <%= link_to '削除', presentation_path(p.id), method: :delete, data: { confirm: 'Delete OK?' } %>
+        <%= link_to '削除', presentation_path(p.id), method: :delete, data: { confirm: 'このプレゼンテーションを削除しますか？' } %>
       <% end %>
     </td>
   </tr>
