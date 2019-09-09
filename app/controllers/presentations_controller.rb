@@ -41,8 +41,9 @@ class PresentationsController < ApplicationController
 
   def destroy
     @presentation = Presentation.find(params[:id])
+    event = Event.find_by(id: @presentation.Event_id)
     if @presentation.destroy
-      redirect_to event_path(params[:event_name])
+      redirect_to event_path(event.event_name)
     else
       render 'edit'
     end
