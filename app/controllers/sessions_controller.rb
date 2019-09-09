@@ -3,8 +3,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(display_name: params[:session][:display_name])
-  	if user && user.authenticate(params[:session][:password])
+    user = User.find_by(display_name: params[:display_name])
+  	if user && user.authenticate(params[:password])
   	  log_in user
   	  redirect_to events_path id: user[:id]
     else
