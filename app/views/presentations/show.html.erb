@@ -3,6 +3,21 @@
 <div class="slide-content">
 	<%= @presentation.link_url.html_safe %>
 </div>
-<% if @presentation.display_name == @user_name %>
-  <%= link_to 'Edit', edit_presentation_path(@presentation.id) %>
+<% if @presentation.display_name == @user.display_name %>
+  <%= link_to 'Edit', edit_presentation_path(@presentation.id), class: "btn btn-success" %>
+<% end %>
+<br />
+<!-- コメントの一覧表示 -->
+<span>コメントする</span>
+<%= form_with url: presentation_comments_path(@presentation.id) do |f| %>
+  <%= f.hidden_field :user_id, :value => @user.id %>
+  <%= f.hidden_field :presentation_id, :value => @presentation.id %>
+  <div class="form-group">
+    <%= f.text_field :sentence, class: "form-control" %>
+  </div>
+  <%= f.submit "Comment", class: "btn btn-info" %>
+<% end %>
+
+<% @comments.each do |c| %>
+  <span><%= c.user_id %> : <%= c.sentence %></span>
 <% end %>
