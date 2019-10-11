@@ -4,9 +4,10 @@ class PresentationsController < ApplicationController
   end
 
   def show
-    user = User.find_by(id: session[:id])
-    @user_name = user.display_name
+    @user = User.find_by(id: session[:id])
     @presentation = Presentation.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.all
   end
 
   def new
